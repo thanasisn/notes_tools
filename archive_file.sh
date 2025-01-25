@@ -26,16 +26,14 @@ else
   exit 3
 fi
 
-file="$(basename "${file}")"
-target="$folder/$(date +"%Y")/${file%.*}_$(date +"%Y-%m-%d").${file##*.}"
+filebase="$(basename "${file}")"
+target="$folder/$(date +"%Y")/${filebase%.*}_$(date +"%Y-%m-%d").${filebase##*.}"
 
 echo "Target: $target"
 
 ## create target folder
 mkdir -p "$folder/$(date +"%Y")"
 ## move file there
-#cp --update
-
-echo "$file" "$target"
+cp --update "$file" "$target"
 
 exit 0
