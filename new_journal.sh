@@ -28,6 +28,12 @@ goto="11"
 mkdir -p "./${year}"
 filename="./${year}/${datenme}.md"
 
+## Create year header file  ----------------------------------------------------
+yfilename="./${year}/0_${year}.md"
+if [[ ! -f "$yfilename" ]] ; then
+  echo "# ${year}" >> "$yfilename"
+fi
+
 ## Open existing file if exist  ------------------------------------------------
 if [[ -f "$filename" ]] ; then
   echo "File $filename exist"
