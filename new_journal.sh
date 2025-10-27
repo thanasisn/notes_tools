@@ -3,7 +3,7 @@
 ## https://github.com/thanasisn <natsisphysicist@gmail.com>
 
 #### Create a new .md file with a given local time or current date and open for edit
-## This is meant to run only within the Journal folder
+## This is meant to run only within a Journal folder
 ## Will create a folder structure for the file
 
 ## Parse input or create the date variable  ------------------------------------
@@ -34,7 +34,7 @@ if [[ ! -f "$yfilename" ]] ; then
   echo "# ${year}" >> "$yfilename"
 fi
 
-## Open existing file if exist  ------------------------------------------------
+## open existing file if exist
 if [[ -f "$filename" ]] ; then
   echo "File $filename exist"
   vim -c "$goto" "$filename"
@@ -62,5 +62,7 @@ touch "$filename"
 
 ## open for edit
 vim -c "$goto" "$filename"
+
+echo  "Created: $filename"
 
 exit 0

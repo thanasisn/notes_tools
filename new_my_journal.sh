@@ -1,12 +1,12 @@
-#!/bin/env bash
-## created on 2024-01-10
+#!/usr/bin/env bash
+## created on 2022-12-19
 ## https://github.com/thanasisn <natsisphysicist@gmail.com>
 
-#### Start a new entry in work journal with the current or given system date
-## This is only used to create entries in a specific location
+#### Create a new .md file with a given local time or current date and open for edit
+## This is only used to create entries in the specific location
 
 ## Go to the journal folder  ---------------------------------------------------
-ROOTDIR="$HOME/NOTES/09_JOURNAL_WORK"
+ROOTDIR="$HOME/NOTES/08_JOURNAL"
 cd "$ROOTDIR" || exit
 
 ## Parse input or create the date variable  ------------------------------------
@@ -20,9 +20,9 @@ else
 fi
 
 ## Crete different variables for the template  ---------------------------------
-datestr="$(date    -d@"${stamp}" +"%F %H:%M %:z")"
-datestrs="$(date   -d@"${stamp}" +"%F %T %:z")"
-dateUTC="$(date -u -d@"${stamp}" +"%F %T %:z")"
+datestr="$(date    -d@"${stamp}" +"%F %H:%M %Z")"
+datestrs="$(date   -d@"${stamp}" +"%F %T %Z")"
+dateUTC="$(date -u -d@"${stamp}" +"%F %T %Z")"
 datenme="$(date    -d@"${stamp}" +"%Y-%m-%d_%H%M")"
 year="$(date       -d@"${stamp}" +"%Y")"
 goto="11"
@@ -51,13 +51,13 @@ touch "$filename"
 (
   echo "---"
   echo "tags:      [  ]"
-  echo "scope:     Work Journal"
+  echo "scope:     "
   echo "created:   $datestrs"
   echo "cunixtime: ${stamp}"
   echo "UTC:       $dateUTC"
   echo "---"
   echo ""
-  echo "## ${datestr} [ThanasisN]"
+  echo "## ${datestr}"
   echo ""
   echo ""
   echo ""
