@@ -32,9 +32,18 @@ echo $TEMP_SCRIPT $filename
 
 # Launch terminal with the temporary script
 ## The name of terminal is used by i3 to send it to scratch pad
-echo lxterminal -t "Floating - Scratchpad - $filename" --geometry=92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
-lxterminal -t "Floating - Scratchpad - $filename" --geometry=92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
+# lxterminal -t "Floating - pad - $filename" --geometry=92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'" &
+# urxvt -name  "Floating - pad - $filename" -geometry 92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
+echo urxvt -name  "Floating - pad - $filename" -geometry 92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
+urxvt -name  "Floating - pad - $filename" -geometry 92x45 -e "$TEMP_SCRIPT" "$filename"
+
+# PID=$!
+# echo $PID > /tmp/scratchpadtoday.pid
+# ## wait for lxterminal to exit 
+# wait $PID
 
 # Clean up
-rm -f "$TEMP_SCRIPT"
+# rm -f "$TEMP_SCRIPT"
+
+sleep 10
 
