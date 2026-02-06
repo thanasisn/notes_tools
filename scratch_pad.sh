@@ -27,7 +27,8 @@ EOF
 chmod +x "$TEMP_SCRIPT"
 
 # Launch terminal with the temporary script
-lxterminal -t "Floating - Scratchpad - $filename" --geometry=150x50 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
+lxterminal -t "Floating - Scratchpad - $filename" --geometry=92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
 
 # Clean up
-# rm -f "$TEMP_SCRIPT"
+rm -f "$TEMP_SCRIPT"
+
