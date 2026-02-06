@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#### Open an existing file with vim in autosave and send it to i3 scratchpad
+
 filename="$1"
 
 # Check if filename was provided
@@ -26,7 +28,11 @@ EOF
 
 chmod +x "$TEMP_SCRIPT"
 
+echo $TEMP_SCRIPT $filename
+
 # Launch terminal with the temporary script
+## The name of terminal is used by i3 to send it to scratch pad
+echo lxterminal -t "Floating - Scratchpad - $filename" --geometry=92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
 lxterminal -t "Floating - Scratchpad - $filename" --geometry=92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
 
 # Clean up
