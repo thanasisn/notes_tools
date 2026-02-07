@@ -34,8 +34,12 @@ echo $TEMP_SCRIPT $filename
 ## The name of terminal is used by i3 to send it to scratch pad
 # lxterminal -t "Floating - pad - $filename" --geometry=92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'" &
 # urxvt -name  "Floating - pad - $filename" -geometry 92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
-echo urxvt -name  "Floating - pad - $filename" -geometry 92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
-urxvt -name  "Floating - pad - $filename" -geometry 92x45 -e "$TEMP_SCRIPT" "$filename"
+#echo urxvt -name  "Floating - pad - $filename" -geometry 92x45 -e "$SHELL -c '$TEMP_SCRIPT $filename'"
+#urxvt -name  "Floating - pad - $filename" -geometry 92x45 -e "$TEMP_SCRIPT" "$filename"
+
+## works, can not set name for i3
+konsole --geometry 700x600 --qwindowtitle "Floating - Scratchpad - $filename" -e "$SHELL -c '$TEMP_SCRIPT $filename'"
+
 
 # PID=$!
 # echo $PID > /tmp/scratchpadtoday.pid
