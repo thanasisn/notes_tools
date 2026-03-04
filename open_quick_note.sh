@@ -24,8 +24,26 @@ cat > "$TEMP_SCRIPT" << 'EOF'
 #!/bin/bash
 filename="$1"
 # vim -c 'autocmd TextChanged,TextChangedI <buffer> silent write' -- "$filename"
-vim -c 'autocmd BufLeave,FocusLost * silent! wall' -- "$filename"
+vim -n -c 'autocmd BufLeave,FocusLost * silent! wall' -- "$filename"
 EOF
+
+# ## every 2 seconds of inactivity?
+# cat > "$TEMP_SCRIPT" << 'EOF'
+# #!/bin/bash
+# filename="$1"
+# 
+# vim -- "$filename" \
+#   -c "let g:autosave_timer = -1" \
+#   -c "function! s:AutosaveDebounced() abort
+#         if g:autosave_timer != -1
+#           call timer_stop(g:autosave_timer)
+#         endif
+#         let g:autosave_timer = timer_start(2000, {-> execute('silent write')})
+#       endfunction" \
+#   -c "autocmd TextChanged,TextChangedI <buffer> call s:AutosaveDebounced()"
+# EOF
+
+
 
 chmod +x "$TEMP_SCRIPT"
 

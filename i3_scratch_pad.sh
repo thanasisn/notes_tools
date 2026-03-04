@@ -24,7 +24,7 @@ cat > "$TEMP_SCRIPT" << 'EOF'
 #!/bin/bash
 filename="$1"
 # vim -c 'autocmd TextChanged,TextChangedI <buffer> silent write' -- "$filename"
-vim -c 'autocmd BufLeave,FocusLost * silent! wall' -- "$filename"
+vim -n -c 'autocmd BufLeave,FocusLost * silent! wall' -- "$filename"
 EOF
 
 # ## every 2 seconds of inactivity?
