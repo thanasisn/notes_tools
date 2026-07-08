@@ -64,10 +64,10 @@ touch "$filename"
 ) > "$filename"
 
 ## Open for edit  --------------------------------------------------------------
-vim -c "$goto" -c "startinsert"  "$filename"
+vim -c "$goto" -c "startinsert" "$filename"
 
 echo  "Created: $filename"
 
+# change to current dir
 cd "$ROOTDIR"
 
-exit 0

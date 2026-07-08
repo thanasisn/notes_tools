@@ -3,10 +3,11 @@
 ## https://github.com/thanasisn <natsisphysicist@gmail.com>
 
 #### Create a quick note and get in the Notes dir.
-## Run on terminal or as a keybind
+## Run in terminal or as a key bind from sxhkd
 
 ## go to this folder at the end
-NOTESDIR="$HOME/NOTES"
+NOTESDIR="$HOME/NOTES/00_INPUT"
+mkdir -p "$NOTESDIR"
 cd "$NOTESDIR" || exit
 
 ## file name for the note
